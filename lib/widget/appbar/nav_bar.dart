@@ -29,6 +29,13 @@ class _FluidNavBarState extends State<FluidNavBar>
   late AnimationController _yController;
   final inCurve = const ElasticOutCurve(0.38);
 
+  final List<FluidFillIconData> icons = [
+    FluidFillIcons.home,
+    FluidFillIcons.window,
+    FluidFillIcons.progress,
+    FluidFillIcons.user,
+  ];
+
   @override
   void initState() {
     _xController = AnimationController(
@@ -96,16 +103,9 @@ class _FluidNavBarState extends State<FluidNavBar>
   }
 
   List<FluidNavBarButton> _buildButtons() {
-    List<FluidFillIconData> icons = [
-      FluidFillIcons.home,
-      FluidFillIcons.window,
-      FluidFillIcons.progress,
-      FluidFillIcons.user
-    ];
     var buttons = List.generate(
         4,
-        (index) => FluidNavBarButton(icons[index], _selectedIndex == index,
-            () => _handlePressed(index)));
+        (index) => FluidNavBarButton(icons[index], _selectedIndex == index, () => _handlePressed(index)));
     return buttons;
   }
 
@@ -158,12 +158,6 @@ class _FluidNavBarState extends State<FluidNavBar>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: _buildButtons(),
-            ),
-          ),
-          Positioned(
-            top: FluidNavBar.nominalHeight,
-            child: SizedBox(
-              height: MediaQuery.of(context).padding.bottom,
             ),
           ),
         ],
