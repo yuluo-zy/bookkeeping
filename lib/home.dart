@@ -1,5 +1,6 @@
 
 
+import 'package:bookkeeping/widget/appbar/nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,14 +22,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     super.initState();
   }
 
+  void _handleNavigationChange(int selectedIndex) {
+    int i = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
-   return const Scaffold(
-     extendBody: true,
-     body: Text("dddd"),
+    return const Scaffold(
+      extendBody: true,
+      body: Text("dddd"),
 
-     // bottomNavigationBar: ,
-   );
+      bottomNavigationBar: FluidNavBar(
+        // onChange: _handleNavigationChange,
+      ),
+    );
   }
 
 }
