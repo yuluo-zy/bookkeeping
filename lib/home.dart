@@ -16,24 +16,23 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late Widget _child;
 
-
   @override
   void initState() {
     super.initState();
   }
 
   void _handleNavigationChange(int selectedIndex) {
-    int i = 0;
+    print(selectedIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       extendBody: true,
-      body: Text("dddd"),
+      body: const Text("dddd"),
 
       bottomNavigationBar: FluidNavBar(
-        // onChange: _handleNavigationChange,
+        onChange: _handleNavigationChange
       ),
     );
   }
